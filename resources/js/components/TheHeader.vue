@@ -1,6 +1,8 @@
 <template>
     <div class="header">
-        <h1>Surfers Co</h1>
+        <a href="/">
+            <h1>Surfers Co.</h1>
+        </a>
         <div class="links">
             <a href="/">Boards</a>
             <a href="/">Accessories</a>
@@ -26,41 +28,66 @@
 <style lang="scss" scoped>
     @import "../../sass/mixins.scss";
 
-    .header{
-        @include flex-row;
-        align-items: center;
-        padding: 50px;
+/*     @media screen and (min-width: 319px) {
+        .header{
+            text-align: center;
 
-        .links{
-            @include flex-row;
-            margin: {
-                left: auto;
-                right: auto;
+            h1{
+                font-size: smaller;
+            }
+            .links{
+                display: none;
             }
 
-            a{
-                padding: 5px;
-                margin-left: 5px;
-                text-decoration: none;
-                text-transform: uppercase;
-                color: black;
-                font-weight: bold;
-                transition-duration: 0.3ms;
+            .social{
+                display: none;
+            }
+        }
+    } */
 
-                &:hover{
-                    color: white;
-                    background-color: aqua;
+    @media screen and (min-width: 768px) {
+        .header{
+            @include flex-row;
+            align-items: center;
+            padding: 50px;
+
+            a{
+                text-decoration: none;
+                &:visited{
+                    color: black;
+                }
+            }
+
+            .links{
+                @include flex-row;
+                margin: {
+                    left: auto;
+                    right: auto;
+                }
+
+                a{
+                    padding: 5px;
+                    margin-left: 5px;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    color: black;
+                    font-weight: bold;
+                    transition-duration: 0.3ms;
+
+                    &:hover{
+                        color: white;
+                        background-color: aqua;
+                    }
+                }
+            }
+
+            .social{
+                @include flex-row;
+                a{
+                    padding: 5px;
                 }
             }
         }
-
-        .social{
-            @include flex-row;
-            a{
-                padding: 5px;
-            }
-        }
-
     }
 
 </style>

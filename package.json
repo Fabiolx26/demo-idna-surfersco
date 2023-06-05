@@ -17,6 +17,7 @@
         "vue": "^3.2.37"
     },
     "dependencies": {
+        "swiper": "^9.3.2",
         "vuetify": "^3.3.2"
     }
 }
