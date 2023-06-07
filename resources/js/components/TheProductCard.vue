@@ -13,17 +13,53 @@
             </div>
             <div class="product-description">
                 <div class="product-name">
-                    <h3>Board 1</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <h3>1 JR Surfboards The Donny Stoker Yellow/Green Rail Fade</h3>
+                    <div class="reviews">
+                        <v-icon icon="mdi-star-outline" v-for="index in 5" :key="index" />
+                        <a href="#">(51)</a>
+                    </div>
                 </div>
-            </div>
-            <div class="title">
+                <div class="description">
+                    <div class="tabs">
+                        <div class="label" @click="activeTab('description')">Description</div>
+                        <div class="label" @click="activeTab('features')">Features</div>
+                        <div class="label" @click="activeTab('dimensions')">Dimensions</div>
+                    </div>
+                    <hr />
+                    <div class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </div>
+                </div>
             </div>
         </v-card>
     </div>
 </template>
 
 <script>
+    export default {
+        data(){
+            return{
+                board1: "../images/"
+            }
+        },
+        methods:{
+            activeTab(){
+                document.addEventListener('DOMContentLoaded', function () {
+                    var labels = document.querySelectorAll('.label');
+
+                    labels.forEach(function (label) {
+                        label.addEventListener('click', function () {
+                            console.log("click");
+                            labels.forEach(function (item) {
+                                item.classList.remove('label-is-active');
+                            });
+                            this.classList.add('label-is-active');
+                        });
+                    });
+                });
+            }
+        }
+    }
 
 </script>
 
@@ -58,9 +94,47 @@
                     img{
                         width: 70px;
                         border: 1px solid grey;
+                        margin: {
+                            top: 2px;
+                            bottom: 2px;
+                        }
 
                         &:hover{
-                            border: 2px solid aqua;
+                            border: 2px solid #00d2ff;
+                        }
+                    }
+                }
+            }
+
+            .product-description{
+                padding: 2em;
+                .product-name{
+
+                    h3{
+                        font-family: 'Montserrat', sans-serif;
+                    }
+
+                    .reviews{
+                        @include flex-row;
+                        margin-top: 10px;
+                        align-content: center;
+                    }
+                }
+                .description{
+                    margin: {
+                        top: 2em;
+                    }
+                    .tabs{
+                        @include flex-row;
+                        text-transform: uppercase;
+                        font-weight: bold;
+
+                        .label{
+                            margin: 0.5em;
+                        }
+
+                        .label-is-active{
+                            border-bottom: 2px solid #00d2ff;
                         }
                     }
                 }

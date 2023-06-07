@@ -14,8 +14,8 @@
         font-style: italic;
 
         .slogan{
-            font-size: 2rem;
-            font-weight: 700;
+            font-size: 3rem;
+            color: black
         }
 
         .subtitle{
