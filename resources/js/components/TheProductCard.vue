@@ -20,15 +20,22 @@
                     </div>
                 </div>
                 <div class="description">
-                    <div class="tabs">
-                        <div class="label" @click="activeTab('description')">Description</div>
-                        <div class="label" @click="activeTab('features')">Features</div>
-                        <div class="label" @click="activeTab('dimensions')">Dimensions</div>
-                    </div>
-                    <hr />
-                    <div class="text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </div>
+                    <ul class="tabs">
+                        <li class="" :class="{ active: activeTab === 'description' }" @click="changeTab('description')">
+                            <a class="mx-4" >Description</a>
+                        </li>
+                        <li class="" :class="{ active: activeTab === 'features' }" @click="changeTab('features')">
+                            <a class="mx-4">Features</a>
+                        </li>
+                        <li class="" :class="{ active: activeTab === 'dimensions' }" @click="changeTab('dimensions')">
+                            <a class="mx-4">Dimensions</a>
+                        </li>
+                    </ul>
+                    <Transition>
+                        <div class="text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </div>
+                    </Transition>
                 </div>
             </div>
         </v-card>
@@ -37,30 +44,18 @@
 
 <script>
     export default {
-        data(){
-            return{
-                board1: "../images/"
+        data() {
+            return {
+                activeTab: 'description'
             }
         },
-        methods:{
-            activeTab(){
-                document.addEventListener('DOMContentLoaded', function () {
-                    var labels = document.querySelectorAll('.label');
-
-                    labels.forEach(function (label) {
-                        label.addEventListener('click', function () {
-                            console.log("click");
-                            labels.forEach(function (item) {
-                                item.classList.remove('label-is-active');
-                            });
-                            this.classList.add('label-is-active');
-                        });
-                    });
-                });
+        methods: {
+            changeTab(tab) {
+                console.log("CHANGE TAB");
+                this.activeTab = tab
             }
         }
     }
-
 </script>
 
 <style lang="scss" scoped>
@@ -118,23 +113,48 @@
                         @include flex-row;
                         margin-top: 10px;
                         align-content: center;
+
+                        i{
+                            color: #ffd119;
+                        }
+
+                        a{
+                            text-decoration: none;
+                            color: grey;
+                            margin-left: 10px;
+                        }
                     }
                 }
                 .description{
                     margin: {
                         top: 2em;
                     }
+
                     .tabs{
                         @include flex-row;
                         text-transform: uppercase;
                         font-weight: bold;
+                        margin-bottom: 10px;
+	                    border-bottom: 1px solid #ddd;
+                        list-style-type: none;
 
-                        .label{
-                            margin: 0.5em;
+                        li{
+                            cursor: pointer;
+                            margin-bottom: -1px;
+
+                            a{
+                                text-decoration: none;
+                                color: grey;
+                            }
                         }
 
-                        .label-is-active{
+                        .active {
                             border-bottom: 2px solid #00d2ff;
+
+                            a{
+                                color:black;
+                                font-weight: bold;
+                            }
                         }
                     }
                 }
