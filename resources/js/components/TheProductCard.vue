@@ -13,7 +13,7 @@
             </div>
             <div class="product-description">
                 <div class="product-name">
-                    <h3>1 JR Surfboards The Donny Stoker Yellow/Green Rail Fade</h3>
+                    <h2>1 JR Surfboards The Donny Stoker Yellow/Green Rail Fade</h2>
                     <div class="reviews">
                         <v-icon icon="mdi-star-outline" v-for="index in 5" :key="index" />
                         <a href="#">(51)</a>
@@ -36,6 +36,10 @@
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                         </div>
                     </Transition>
+                </div>
+                <div class="price-buy-button">
+                    <div class="price">$499.99</div>
+                    <v-btn color="#00d2ff" class="text-white fw-bold">Buy now</v-btn>
                 </div>
             </div>
         </v-card>
@@ -62,6 +66,7 @@
     @import "../../sass/mixins";
 
     .product-cards {
+        font-family: 'Montserrat', sans-serif;
         margin: {
             top: 100px;
             bottom: 100px;
@@ -105,10 +110,6 @@
                 padding: 2em;
                 .product-name{
 
-                    h3{
-                        font-family: 'Montserrat', sans-serif;
-                    }
-
                     .reviews{
                         @include flex-row;
                         margin-top: 10px;
@@ -125,9 +126,11 @@
                         }
                     }
                 }
+
                 .description{
                     margin: {
                         top: 2em;
+                        bottom: 2em;
                     }
 
                     .tabs{
@@ -157,20 +160,24 @@
                             }
                         }
                     }
+
+                    .text{
+                        margin-top: 1em;
+                        color: grey;
+                    }
+                }
+
+                .price-buy-button{
+                    @include flex-row;
+                    font-weight: 700;
+                    align-items: center;
+
+                    .price{
+                        font-size: larger;
+                        margin-right: 30px;
+                    }
                 }
             }
-
-/*             .title{
-                position:absolute;
-                font: {
-                    size: 100%;
-                    weight: bolder;
-                }
-                color: grey;
-                z-index: -1;
-                right: 0;
-                transform: rotate(-90deg);
-            } */
         }
     }
 </style>

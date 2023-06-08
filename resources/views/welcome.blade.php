@@ -9,11 +9,10 @@
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-    <link href="https://fonts.google.com/specimen/Raleway?selection.family=Raleway:400,600" />
-    <link href="https://fonts.google.com/specimen/Montserrat?query=montserrat&selection.family=Montserrat:400,700" />
-    <link href="https://fonts.google.com/specimen/Playfair+Display?category=Serif&selection.family=Playfair+Display:400,400i" />
-    <link href="https://fonts.google.com/specimen/Roboto+Condensed?selection.family=Roboto+Condensed:700" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Playfair&family=Raleway&family=Roboto" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">
 </head>
 
