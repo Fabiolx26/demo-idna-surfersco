@@ -67,26 +67,20 @@
         },
         methods: {
             changeTab(tab) {
-                console.log("CHANGE TAB");
                 this.activeTab = tab
             },
             fillStars(index) {
-                console.log("FILL STARS", index);
                 this.stars = this.stars.map((star, i) => i <= index);
             },
             emptyStars(){
-                console.log("ON MOUSE OVER");
                 if(this.selectedStar === -1){
-                    console.log("THERE'S NOT A SELECTED STAR");
                     this.stars = this.stars.map(() => false);
                 }
             },
             selectStar(index) {
-                console.log("SELECTED STAR",index);
                 this.selectedStar = index;
             },
             starIcon(star) {
-                console.log("Star icon");
                 return star ? 'mdi-star' : 'mdi-star-outline';
             },
         }
