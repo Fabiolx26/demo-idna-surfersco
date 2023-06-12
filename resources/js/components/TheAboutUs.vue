@@ -1,20 +1,24 @@
 <template>
-    <div class="about-us d-flex-column">
+    <div class="about-us-container">
         <h1 class="mx-auto">About us</h1>
         <div class="about">
-            <div class="text my-auto">
+            <img class="surfer" src="../../images/surfer.jpg" alt="surfer" />
+            <div class="text">
                 <div class="h2-text p-20">
                     <h2 class="mx-auto">We are Surfers co.</h2>
                     <v-icon icon="mdi-close" class="mx-auto" />
                     <div>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                        eiusmod tempor incididunt ut lab
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                        officia deserunt mollit anim id est laborum.
                     </div>
-                    <a href="#">Read more</a>
+                    <a class="my-1" href="#">Read more</a>
                 </div>
             </div>
+            <video src="../../video/surfers.webm" class="about-video" autoplay loop muted />-->
         </div>
-        <!--<video src="../../video/surfers.webm" class="about-video" autoplay loop muted />-->
     </div>
 </template>
 
@@ -27,13 +31,11 @@
 <style scoped lang="scss">
     @import '../../sass/mixins';
 
-    .about-us{
-        bottom: 1em;
+    .about-us-container{
+        @include flex-col;
+        margin-bottom: 10em;
+
         h1{
-            margin: {
-                left: auto;
-                right: auto;
-            }
             font: {
                 family: 'Montserrat';
                 size: 10.25em;
@@ -43,20 +45,33 @@
             color: #fafafa;
             user-select: none;
         }
+
         .about{
             display: flex;
-            background-image: url("../../images/surfer.jpg");
+            flex-direction: row;
             width: 100%;
             height: 500px;
             color: black;
 
+            .surfer{
+                position: absolute;
+                z-index: -1;
+                height: 500px;
+            }
+
             .text{
                 background-color: white;
                 width: 50%;
+                height: 60%;
+                margin-top: auto;
                 padding: 4em;
 
                 .h2-text{
                     @include flex-col;
+                    margin: {
+                        left: 1em;
+                        right: 1em;
+                    }
 
                     h2{
                         font-family: 'Montserrat';
@@ -64,14 +79,30 @@
                     }
 
                     div{
-                        font-family: "Playfair Display", serif;
-                        font-style: italic;
+                        font: {
+                            family: "Playfair Display", serif;
+                            style: italic;
+                            size: large
+                        }
+                    }
+
+                    a{
+                        font-family: "Montserrat", sans-serif;
+                        text-decoration: none;
                     }
                 }
             }
+            .about-video{
+                display: flex;
+                margin: {
+                    left: auto;
+                    top: 30%;
+                }
+                height: 55%;
+                box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.75);
+                -webkit-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.75);
+                -moz-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.75);
+            }
         }
     }
-        
-    
-
 </style>
