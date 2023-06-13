@@ -4,6 +4,7 @@
         <TheHeroSection></TheHeroSection>
         <TheProductCard></TheProductCard>
         <TheAboutUs></TheAboutUs>
+        <TheSocialEmail></TheSocialEmail>
     </div>
 </template>
 
@@ -12,13 +13,15 @@
     import TheHeroSection from './components/TheHeroSection.vue';
     import TheProductCard from './components/TheProductCard.vue';
     import TheAboutUs from './components/TheAboutUs.vue';
+    import TheSocialEmail from './components/TheSocialEmail.vue';
 
     export default{
         components:{
             TheHeader,
             TheHeroSection,
             TheProductCard,
-            TheAboutUs
+            TheAboutUs,
+            TheSocialEmail
         }
     }
 </script>

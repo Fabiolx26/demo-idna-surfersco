@@ -89,6 +89,7 @@
 
 <style lang="scss" scoped>
     @import "../../sass/mixins";
+    @import "../../sass/variables";
 
     .product-cards {
         font-family: 'Montserrat', sans-serif;
@@ -118,14 +119,14 @@
                 .thumbnails{
                     img{
                         width: 70px;
-                        border: 1px solid grey;
+                        border: 1px solid #808080;
                         margin: {
                             top: 2px;
                             bottom: 2px;
                         }
 
                         &:hover{
-                            border: 2px solid #00d2ff;
+                            border: 2px solid $light-main-color;
                         }
                     }
                 }
@@ -133,6 +134,7 @@
 
             .product-description{
                 padding: 4em;
+                
                 .product-name{
 
                     .reviews{
@@ -146,7 +148,7 @@
 
                         a{
                             text-decoration: none;
-                            color: grey;
+                            color: #808080;
                             margin-left: 10px;
                         }
                     }
@@ -160,7 +162,7 @@
                         text-transform: uppercase;
                         font-weight: bold;
                         margin-bottom: 10px;
-	                    border-bottom: 1px solid #ddd;
+	                    border-bottom: 1px solid #dddddd;
                         list-style-type: none;
 
                         li{
@@ -169,15 +171,15 @@
 
                             a{
                                 text-decoration: none;
-                                color: grey;
+                                color: #808080;
                             }
                         }
 
                         .active {
-                            border-bottom: 2px solid #00d2ff;
+                            border-bottom: 2px solid $light-main-color;
 
                             a{
-                                color:black;
+                                color:#000000;
                                 font-weight: bold;
                             }
                         }
@@ -185,7 +187,7 @@
 
                     .text{
                         margin-top: 1em;
-                        color: grey;
+                        color: #808080;
                     }
                 }
 

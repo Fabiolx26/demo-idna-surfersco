@@ -24,12 +24,6 @@
     </div>
 </template>
 
-<script>
-    export default {
-        
-    }
-</script>
-
 <style scoped lang="scss">
     @import '../../sass/mixins';
 
@@ -54,7 +48,7 @@
             flex-direction: row;
             width: 100%;
             height: 500px;
-            color: black;
+            color: #000000;
 
             .surfer{
                 position: absolute;
@@ -63,7 +57,7 @@
             }
 
             .text{
-                background-color: white;
+                background-color: #ffffff;
                 width: 50%;
                 height: 60%;
                 margin-top: auto;
@@ -102,9 +96,9 @@
                     top: 30%;
                 }
                 height: 55%;
-                box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.75);
-                -webkit-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.75);
-                -moz-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.75);
+                box-shadow: 0px 0px 13px 0px #000000bf;
+                -webkit-box-shadow: 0px 0px 13px 0px #000000bf;
+                -moz-box-shadow: 0px 0px 13px 0px #000000bf;
             }
         }
     }
