@@ -1,23 +1,25 @@
 <template>
-    <div class="about-us-container">
+    <div class="about-us d-flex flex-column">
         <h1 class="mx-auto">About us</h1>
-        <div class="about">
-            <img class="surfer" src="../../images/surfer.jpg" alt="surfer" />
-            <div class="text">
-                <div class="h2-text p-20">
-                    <h2 class="mx-auto">We are Surfers co.</h2>
-                    <v-icon icon="mdi-close" class="mx-auto" />
-                    <div>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                        officia deserunt mollit anim id est laborum.
+        <div class="about-us-container">
+            <div class="about">
+                <img class="surfer" src="../../images/surfer.jpg" alt="surfer" />
+                <div class="text">
+                    <div class="h2-text p-20">
+                        <h2 class="mx-auto">We are Surfers co.</h2>
+                        <v-icon icon="mdi-close" class="mx-auto" />
+                        <div>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                            officia deserunt mollit anim id est laborum.
+                        </div>
+                        <a class="my-1" href="#">Read more</a>
                     </div>
-                    <a class="my-1" href="#">Read more</a>
                 </div>
+                <video src="../../video/surfers.webm" class="about-video" autoplay loop muted />-->
             </div>
-            <video src="../../video/surfers.webm" class="about-video" autoplay loop muted />-->
         </div>
     </div>
 </template>
@@ -31,20 +33,21 @@
 <style scoped lang="scss">
     @import '../../sass/mixins';
 
+    h1{
+        margin-bottom: -60px;
+        font: {
+            family: 'Montserrat';
+            size: 10.25em;
+            weight: 700;
+        }
+        text-transform: uppercase;
+        color: #fafafa;
+        user-select: none;
+    }
+
     .about-us-container{
         @include flex-col;
         margin-bottom: 10em;
-
-        h1{
-            font: {
-                family: 'Montserrat';
-                size: 10.25em;
-                weight: 700;
-            }
-            text-transform: uppercase;
-            color: #fafafa;
-            user-select: none;
-        }
 
         .about{
             display: flex;
