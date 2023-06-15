@@ -1,15 +1,22 @@
 <template>
     <div class="social-email">
         <div class="container">
-            <v-card class="social">
+            <div class="social">
                 <h1>Instagram</h1>
-
-            </v-card>
+                <v-card>
+                    <img src="../../images/collage.png" />
+                    <div class="follow-us">
+                        <v-icon icon="mdi-instagram" />
+                        <h2>Follow us</h2>
+                        <a href="#">@surfersco</a>
+                    </div>
+                </v-card>
+            </div>
             <div class="email-form">
                 <form @submit.prevent="validate()" class="form">
-                    <v-text-field variant="solo" class="w-70 mb-4" v-model="firstName" label="First name" :rules="[v => !!v || 'First Name is required']" :error-messages="formErrors.firstName"/>
-                    <v-text-field variant="solo" class="mb-4" v-model="lastName" label="Last name" :rules="[v => !!v || 'Last Name is required']" :error-messages="formErrors.lastName"/>
-                    <v-text-field variant="solo" class="mb-4" v-model="email" label="E-mail" :rules="[v => !!v || 'Email is required']" :error-messages="formErrors.email"/>
+                    <v-text-field variant="solo" class="w-70 mb-3" v-model="firstName" label="First name" :rules="[v => !!v || 'First Name is required']" :error-messages="formErrors.firstName"/>
+                    <v-text-field variant="solo" class="mb-3" v-model="lastName" label="Last name" :rules="[v => !!v || 'Last Name is required']" :error-messages="formErrors.lastName"/>
+                    <v-text-field variant="solo" class="mb-3" v-model="email" label="E-mail" :rules="[v => !!v || 'Email is required']" :error-messages="formErrors.email"/>
                     <div class="grid mb-4">
                         <v-text-field variant="solo" v-model="birthPlace" label="Birth Place" />
                         <v-text-field variant="solo" type="date" v-model="birthDate" label="Birth Date" placeholder="/"/>
@@ -100,6 +107,7 @@
 
     .social-email {
         margin-top: 10em;
+        align-items: flex-start;
 
         .container{
             @include flex-row;
@@ -107,20 +115,61 @@
 
             .social{
                 width: 480px;
-                height: 480px;
-                background-color: aqua;
+                height: 720px;
                 margin-right: 2em;
+
+                h1{
+                    font: {
+                        family: 'Montserrat';
+                        size: 5em;
+                        weight: 700;
+                    }
+                    margin-bottom: -30px;
+                    text-transform: uppercase;
+                    color: #fafafa;
+                    user-select: none;
+                }
+
+                img{
+                    width: 480px;
+                }
+
+                .follow-us{
+                    @include flex-row;
+                    align-items: center;
+
+                    h2,i,a{
+                        margin: 10px;
+                    }
+
+                    h2,i{
+                        color: $main-color;
+                        font-size:x-large;
+                        user-select: none;
+                    }
+
+                    h2{
+                        text-transform: uppercase;
+                    }
+                    a{
+                        text-decoration: none;
+
+                        
+                        &:link,&:visited{
+                            color: grey
+                        }
+                    }
+                }
             }
             .form{
                 @include flex-col;
                 width: 480px;
-
                 .grid{
                     display: grid;
-                    grid-template-columns: auto auto;
-                    column-gap: 1em;  
+                    grid-template-columns: 50% 50%;
+                    column-gap: 1em;
                 }
             }
         }
-        }
+    }
 </style>
