@@ -4,6 +4,7 @@ namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
@@ -27,8 +28,10 @@ class NewContact extends Mailable
      */
     public function envelope(): Envelope
     {
+        Log::debug("MAIL::NEW CONTACT ENVELOPE");
+        Log::debug("CONTACT: ". $this->contact);
         return new Envelope(
-            replyTo: $this->contact->address,
+            replyTo: $this->contact->email,
             subject: 'Welcome!',
         );
     }
