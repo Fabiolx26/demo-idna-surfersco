@@ -16,9 +16,9 @@
                         <v-text-field variant="solo" v-model="phone" label="Phone" />
                         <v-text-field variant="solo" v-model="company" label="Company" />
                     </div>
-                    <v-textarea variant="solo" label="Your message" />
+                    <v-textarea variant="solo" v-model="message" label="Your message" />
                     <v-checkbox v-model="agree" color="#00b0ff" class="text-black" label="Accept privacy policy" />
-                    <v-btn type="submit" color="#00b0ff" class="mx-auto text-white fw-bold">Submit</v-btn>
+                    <v-btn type="submit" color="#00b0ff" class="mx-auto text-white fw-bold" :disabled="!agree">Submit</v-btn>
                 </form>
             </div>
         </div>
@@ -38,14 +38,15 @@
                 birthDate: '',
                 phone: '',
                 company: '',
+                message: '',
                 agree: false,
-                valid: false,
                 formErrors: []
             }
         },
         methods: {
             validate(){
                 console.log("banana");
+                this.formErrors = [];
 
                 if(!this.firstName){
                     this.formErrors.firstName = "First Name is required";
@@ -67,15 +68,26 @@
                 axios.post('api/new-contact', {
                     firstName: this.firstName,
                     lastName: this.lastName,
-                    email: this.email
+                    email: this.email,
+                    birthPlace: this.birthPlace,
+                    birthDate: this.birthDate,
+                    phone: this.phone,
+                    company: this.company,
+                    message: this.message
                 })
                 .then(response => {
                     console.log(response.data);
-                    // Azioni da eseguire in caso di successo
+                    this.firstName = '';
+                    this.lastName = '';
+                    this.email = '';
+                    this.birthPlace = '';
+                    this.birthDate = '';
+                    this.phone = '';
+                    this.company = '';
+                    this.agree = false;
                 })
                 .catch(error => {
                     console.error(error);
-                    // Azioni da eseguire in caso di errore
                 });
             }
         }
