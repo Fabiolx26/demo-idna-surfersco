@@ -31,20 +31,21 @@
 </template>
 
 <script setup>
-    import { ref } from 'vue'
+/*     import { ref } from 'vue'
 
     const show = ref(false);
-
+ */
 </script>
 
 <style lang="scss" scoped>
     @import "../../sass/mixins.scss";
+    @import "../../sass/variables.scss";
 
     @media screen and (min-width: 319px) {
         .header{
             text-align: center;
 
-            .hamburger {
+            /* .hamburger {
                 display: flex;
                 margin-left : auto;
                 flex-direction: column;
@@ -77,8 +78,9 @@
 
                 &--is-open .line3{
                     transform: translate(0, -12px) rotate(-45deg);
-                }
-            }
+                } 
+            }*/
+            
             .links{
                 display: none;
             }
@@ -98,7 +100,7 @@
             a{
                 text-decoration: none;
                 &:visited{
-                    color: black;
+                    color: #000000;
                 }
             }
 
@@ -114,13 +116,13 @@
                     margin-left: 5px;
                     text-decoration: none;
                     text-transform: uppercase;
-                    color: black;
+                    color: #000000;
                     font-weight: bold;
                     transition-duration: 0.3ms;
 
                     &:hover{
-                        color: white;
-                        background-color: #00b0ff;
+                        color: #ffffff;
+                        background-color: $main-color;
                     }
                 }
             }

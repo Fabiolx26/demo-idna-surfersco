@@ -15,7 +15,7 @@
                 <div class="product-name">
                     <h2>1 JR Surfboards The Donny Stoker Yellow/Green Rail Fade</h2>
                     <div class="reviews">
-                        <v-icon icon="mdi-star-outline" v-for="index in 5" :key="index" />
+                        <v-icon v-for="(star, index) in stars" :key="index"  :icon="starIcon(star)" @mouseover="fillStars(index)" @mouseout="emptyStars()" @click="selectStar(index)"></v-icon>
                         <a href="#">(51)</a>
                     </div>
                 </div>
@@ -31,9 +31,19 @@
                             <a class="mx-4">Dimensions</a>
                         </li>
                     </ul>
-                    <Transition>
-                        <div class="text">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    <Transition mode="out-in">
+                        <div v-if="activeTab === 'description'" class="text">
+                           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                           Vivamus arcu felis bibendum ut tristique et egestas. Odio euismod lacinia at quis risus sed.
+                           Pharetra sit amet aliquam id diam maecenas ultricies mi.
+                        </div>
+                        <div v-else-if="activeTab === 'features'" class="text">
+                            Velit laoreet id donec ultrices tincidunt arcu non. Arcu risus quis varius quam quisque id diam.
+                            Vestibulum morbi blandit cursus risus at ultrices mi tempus imperdiet. Ut aliquam purus sit amet luctus venenatis.
+                            Lacus sed viverra tellus in hac habitasse. Ultrices eros in cursus turpis.
+                        </div>
+                        <div v-else-if="activeTab === 'dimensions'" class="text">
+                            Condimentum id venenatis a condimentum vitae sapien pellentesque habitant.
                         </div>
                     </Transition>
                 </div>
@@ -50,20 +60,36 @@
     export default {
         data() {
             return {
-                activeTab: 'description'
+                activeTab: 'description',
+                selectedStar: -1,
+                stars: [false, false, false, false, false]
             }
         },
         methods: {
             changeTab(tab) {
-                console.log("CHANGE TAB");
                 this.activeTab = tab
-            }
+            },
+            fillStars(index) {
+                this.stars = this.stars.map((star, i) => i <= index);
+            },
+            emptyStars(){
+                if(this.selectedStar === -1){
+                    this.stars = this.stars.map(() => false);
+                }
+            },
+            selectStar(index) {
+                this.selectedStar = index;
+            },
+            starIcon(star) {
+                return star ? 'mdi-star' : 'mdi-star-outline';
+            },
         }
     }
 </script>
 
 <style lang="scss" scoped>
     @import "../../sass/mixins";
+    @import "../../sass/variables";
 
     .product-cards {
         font-family: 'Montserrat', sans-serif;
@@ -93,21 +119,22 @@
                 .thumbnails{
                     img{
                         width: 70px;
-                        border: 1px solid grey;
+                        border: 1px solid #808080;
                         margin: {
                             top: 2px;
                             bottom: 2px;
                         }
 
                         &:hover{
-                            border: 2px solid #00d2ff;
+                            border: 2px solid $light-main-color;
                         }
                     }
                 }
             }
 
             .product-description{
-                padding: 2em;
+                padding: 4em;
+                
                 .product-name{
 
                     .reviews{
@@ -121,24 +148,21 @@
 
                         a{
                             text-decoration: none;
-                            color: grey;
+                            color: #808080;
                             margin-left: 10px;
                         }
                     }
                 }
 
                 .description{
-                    margin: {
-                        top: 2em;
-                        bottom: 2em;
-                    }
+                    margin-top: 2em;
 
                     .tabs{
                         @include flex-row;
                         text-transform: uppercase;
                         font-weight: bold;
                         margin-bottom: 10px;
-	                    border-bottom: 1px solid #ddd;
+	                    border-bottom: 1px solid #dddddd;
                         list-style-type: none;
 
                         li{
@@ -147,15 +171,15 @@
 
                             a{
                                 text-decoration: none;
-                                color: grey;
+                                color: #808080;
                             }
                         }
 
                         .active {
-                            border-bottom: 2px solid #00d2ff;
+                            border-bottom: 2px solid $light-main-color;
 
                             a{
-                                color:black;
+                                color:#000000;
                                 font-weight: bold;
                             }
                         }
@@ -163,12 +187,14 @@
 
                     .text{
                         margin-top: 1em;
-                        color: grey;
+                        color: #808080;
                     }
                 }
 
                 .price-buy-button{
                     @include flex-row;
+                    position: absolute;
+                    bottom: 4em;
                     font-weight: 700;
                     align-items: center;
 
@@ -179,5 +205,15 @@
                 }
             }
         }
+    }
+
+    .v-enter-active,
+    .v-leave-active {
+    transition: opacity 0.3s ease;
+    }
+
+    .v-enter-from,
+    .v-leave-to {
+    opacity: 0;
     }
 </style>

@@ -15,12 +15,12 @@
 
         .slogan{
             font-size: 3rem;
-            color: black
+            color: #000000
         }
 
         .subtitle{
             font-size: 1.5rem;
-            color: white;
+            color: #ffffff;
         }
     }
 </style>
