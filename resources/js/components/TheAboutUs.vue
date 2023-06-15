@@ -41,7 +41,7 @@
 
     .about-us-container{
         @include flex-col;
-        margin-bottom: 10em;
+        margin-bottom: 5em;
 
         .about{
             display: flex;
