@@ -4,7 +4,7 @@
             <div class="product">
                 <img src="../../images/corner.png" class="corner">
                 <img src="../../images/board-1.png" class="board-1 mx-auto my-auto">
-                <div class="thumbnails d-flex flex-column my-auto">
+                <div class="thumbnails my-auto">
                     <img src="../../images/thumb1.png"/>
                     <img src="../../images/thumb2.png"/>
                     <img src="../../images/thumb3.png"/>
@@ -21,7 +21,7 @@
                 </div>
                 <div class="description">
                     <ul class="tabs">
-                        <li class="" :class="{ active: activeTab === 'description' }" @click="changeTab('description')">
+                        <li id="main-tab" class="" :class="{ active: activeTab === 'description' }" @click="changeTab('description')">
                             <a class="mx-4" >Description</a>
                         </li>
                         <li class="" :class="{ active: activeTab === 'features' }" @click="changeTab('features')">
@@ -91,122 +91,281 @@
     @import "../../sass/mixins";
     @import "../../sass/variables";
 
-    .product-cards {
-        font-family: 'Montserrat', sans-serif;
-        margin: {
-            top: 100px;
-            bottom: 100px;
-        }
-
-        .card{
-            @include flex-row;
-            width: 75%;
-            
-            .product{
-                @include flex-row;
-                .corner{
-                    height: 100%;
-                    position: absolute;
-                    left: 0;
-                    z-index: -1;
-                }
-
-                .board-1{
-                    height: 70%;
-                }
-
-                
-                .thumbnails{
-                    img{
-                        width: 70px;
-                        border: 1px solid #808080;
-                        margin: {
-                            top: 2px;
-                            bottom: 2px;
-                        }
-
-                        &:hover{
-                            border: 2px solid $light-main-color;
-                        }
-                    }
-                }
+    @media screen and (min-width: 319px) {
+        .product-cards {
+            font-family: 'Montserrat', sans-serif;
+            margin: {
+                top: 50px;
+                bottom: 50px;
             }
-
-            .product-description{
-                padding: 4em;
+    
+            .card{
+                @include flex-col;
+                width: 75%;
                 
-                .product-name{
+                .product{
+                    @include flex-col;
+                    .corner{
+                        height: 50%;
+                        position: absolute;
+                        left: 0;
+                        z-index: -1;
+                    }
+    
+                    .board-1{
+                        height: 300px;
+                    }
 
-                    .reviews{
-                        @include flex-row;
-                        margin-top: 10px;
-                        align-content: center;
-
-                        i{
-                            color: #ffd119;
-                        }
-
-                        a{
-                            text-decoration: none;
-                            color: #808080;
-                            margin-left: 10px;
+                    .thumbnails{
+                        display: none;
+                        img{
+                            width: 70px;
+                            border: 1px solid #808080;
+                            margin: {
+                                top: 2px;
+                                bottom: 2px;
+                            }
+    
+                            &:hover{
+                                border: 2px solid $light-main-color;
+                            }
                         }
                     }
                 }
+    
+                .product-description{
+                    @include flex-col;
+                    margin: 1em;
+ 
+                    .product-name{
+                        
+                        h2{
+                            font-size: smaller;
+                        }
 
-                .description{
-                    margin-top: 2em;
-
-                    .tabs{
-                        @include flex-row;
-                        text-transform: uppercase;
-                        font-weight: bold;
-                        margin-bottom: 10px;
-	                    border-bottom: 1px solid #dddddd;
-                        list-style-type: none;
-
-                        li{
-                            cursor: pointer;
-                            margin-bottom: -1px;
-
+                        .reviews{
+                            @include flex-row;
+                            margin-top: 10px;
+                            align-content: center;
+    
+                            i{
+                                color: #ffd119;
+                            }
+    
                             a{
                                 text-decoration: none;
                                 color: #808080;
-                            }
-                        }
-
-                        .active {
-                            border-bottom: 2px solid $light-main-color;
-
-                            a{
-                                color:#000000;
-                                font-weight: bold;
+                                margin-left: 10px;
                             }
                         }
                     }
-
-                    .text{
+    
+                    .description{
                         margin-top: 1em;
-                        color: #808080;
+    
+                        .tabs{
+                            @include flex-row;
+                            text-transform: uppercase;
+                            font: {
+                                weight: bold;
+                                size: small;
+                            }
+                            margin-bottom: 10px;
+                            border-bottom: 1px solid #dddddd;
+                            list-style-type: none;
+
+                            #main-tab{
+                                display: block;
+                                a{
+                                    text-decoration: none;
+                                    color: #808080;
+                                }
+                            }
+    
+                            li{ display: none; }
+    
+                            .active {
+                                border-bottom: 2px solid $light-main-color;
+    
+                                a{
+                                    color:#000000;
+                                    font-weight: bold;
+                                }
+                            }
+                        }
+    
+                        .text{
+                            font-size: x-small;
+                            margin-bottom: 2em;
+                            color: #808080;
+                        }
                     }
-                }
-
-                .price-buy-button{
-                    @include flex-row;
-                    position: absolute;
-                    bottom: 4em;
-                    font-weight: 700;
-                    align-items: center;
-
-                    .price{
-                        font-size: larger;
-                        margin-right: 30px;
+    
+                    .price-buy-button{
+                        @include flex-row;
+                        font-weight: 700;
+                        align-items: center;
+    
+                        .price{
+                            font-size: small;
+                            margin-right: auto;
+                        }
                     }
                 }
             }
         }
     }
 
+    @media screen and (min-width: 767px){
+        .product-cards {
+            margin: {
+                top: 100px;
+                bottom: 100px;
+            }
+        
+            .card{
+                @include flex-row;
+                width: 80%;
+                
+                .product{
+                    @include flex-row;
+                    .corner{
+                        height: 100%;
+                    }
+        
+                    .thumbnails{
+                        @include flex-col;
+                        margin-left: 2em;
+
+                        img{
+                            width: 65px;
+                            border: 1px solid #808080;
+                            margin: {
+                                top: 2px;
+                                bottom: 2px;
+                            }
+                        }
+                    }
+                }
+        
+                .product-description{
+
+                    .description{
+
+                        .text{
+                            margin-top: 1em;
+                        }
+                    }
+        
+                    .price-buy-button{
+                        .price{
+                            font-size: large;
+                            margin-right: 25px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 1023px){
+        .product-cards {
+
+            .card{
+                @include flex-row;
+                width: 90%;
+                
+                .product{
+                    @include flex-row;
+    
+                    .board-1{
+                        height: 70%;
+                    }
+
+                    .thumbnails{
+                        margin-left: 0;
+                        img{
+                            width: 70px;
+    
+                            &:hover{
+                                border: 2px solid $light-main-color;
+                            }
+                        }
+                    }
+                }
+    
+                .product-description{
+                    margin: 4em;
+                    
+                    .product-name{
+                        h2{
+                            font-size: large;
+                        }
+    
+                        .reviews{
+                            @include flex-row;
+                            margin-top: 10px;
+                            align-content: center;
+    
+                            i{
+                                color: #ffd119;
+                            }
+    
+                            a{
+                                text-decoration: none;
+                                color: #808080;
+                                margin-left: 10px;
+                            }
+                        }
+                    }
+    
+                    .description{
+                        margin-top: 2em;
+    
+                        .tabs{
+    
+                            li{
+                                display: block;
+                                cursor: pointer;
+    
+                                a{
+                                    text-decoration: none;
+                                    color: #808080;
+                                }
+                            }
+    
+                            .active {
+                                border-bottom: 2px solid $light-main-color;
+    
+                                a{
+                                    color:#000000;
+                                    font-weight: bold;
+                                }
+                            }
+                        }
+    
+                        .text{
+                            font-size: medium;
+                        }
+                    }
+    
+                    .price-buy-button{
+                        position: absolute;
+                        bottom: 4em;
+                        font-weight: 700;
+    
+                        .price{
+                            font-size: larger;
+                            margin-right: 30px;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+        
+    
     .v-enter-active,
     .v-leave-active {
     transition: opacity 0.3s ease;
