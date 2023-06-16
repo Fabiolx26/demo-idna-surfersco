@@ -15,38 +15,50 @@
 
 <style lang="scss" scoped>
     @import "../../sass/app.scss";
-    .footer{
-        display: flex;
-        background-color: #2b2b2b;
-        color: white;
-        margin-top: 5em;
-        font: {
-            size: large;
-            family: 'Montserrat', sans-serif;
-        }
-        justify-content: center;
 
-        .grid{
-            display: grid;
-            grid-template-columns: auto auto;
-            column-gap: 10em;
-            margin: {
-                left: auto;
-                right: auto;
+    @media screen and (min-width: 319px)
+    {
+        .footer{
+            display: flex;
+            background-color: #2b2b2b;
+            color: white;
+            margin-top: 5em;
+            font: {
+                size: large;
+                family: 'Montserrat', sans-serif;
             }
-            padding: {
-                top: 2em;
-                bottom: 2em;
+            justify-content: center;
+            .grid{
+                display: grid;
+                grid-template-columns: auto auto;
+                column-gap: 1em;
+                margin: {
+                    left: auto;
+                    right: auto;
+                }
+                padding: {
+                    top: 2em;
+                    bottom: 2em;
+                }
+                
+                a{
+                    display: inline-block;
+                    text-decoration: none;
+                }
             }
-            
-            a{
-                display: inline-block;
-                text-decoration: none;
+    
+    /*         .grid > a{
+                grid-column: span 1;
+            } */
+        }
+    }
+    @media screen and (min-width: 727px)
+    {
+        .footer{
+    
+            .grid{
+                column-gap: 10em;
             }
         }
-
-/*         .grid > a{
-            grid-column: span 1;
-        } */
     }
 </style>

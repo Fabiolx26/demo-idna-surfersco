@@ -247,7 +247,7 @@
                         }
                     }
                 }
-        
+
                 .product-description{
 
                     .description{

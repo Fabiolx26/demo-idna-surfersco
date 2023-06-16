@@ -1,9 +1,9 @@
 <template>
     <div class="header">
-        <a class="mx-auto" href="/">
+        <a class="title" href="/">
             <h1>Surfers Co.</h1>
         </a>
-<!--         <div class="hamburger" @click="show = !show" :class="show ? 'hamburger--is-open' : ''">
+    <!-- <div class="hamburger" @click="show = !show" :class="show ? 'hamburger--is-open' : ''">
             <span class="line line1"></span>
             <span class="line line2"></span>
             <span class="line line3"></span>
@@ -47,9 +47,12 @@
             padding: 25px;
             text-align: center;
 
-            a{
+            .title{
                 text-decoration: none;
-                //margin-left: auto;
+                margin: {
+                    left: auto;
+                    right: auto;
+                }
                 
                 &:visited{
                     color: #000000;
@@ -107,7 +110,11 @@
             @include flex-row;
             align-items: center;
             padding: 50px;
-            font-size: small;
+
+            .title{
+                margin: unset;
+                font-size: smaller;
+            }
 
             .links{
                 @include flex-row;
@@ -131,14 +138,21 @@
                     }
                 }
             }
+        }
+    }
+
+    @media screen and (min-width: 1023px){
+        .header{
 
             .social{
+
                 @include flex-row;
                 a{
                     padding: 5px;
                 }
             }
         }
+
     }
 
 </style>
