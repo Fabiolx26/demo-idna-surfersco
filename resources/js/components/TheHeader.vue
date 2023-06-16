@@ -1,13 +1,13 @@
 <template>
     <div class="header">
-        <a href="/">
+        <a class="title" href="/">
             <h1>Surfers Co.</h1>
         </a>
-        <!--<div class="hamburger" @click="show = !show" :class="show ? 'hamburger--is-open' : ''">
+    <!-- <div class="hamburger" @click="show = !show" :class="show ? 'hamburger--is-open' : ''">
             <span class="line line1"></span>
             <span class="line line2"></span>
             <span class="line line3"></span>
-        </div>-->
+        </div> -->
         <div class="links">
             <a href="/">Boards</a>
             <a href="/">Accessories</a>
@@ -31,7 +31,7 @@
 </template>
 
 <script setup>
-/*     import { ref } from 'vue'
+/*  import { ref } from 'vue'
 
     const show = ref(false);
  */
@@ -43,7 +43,21 @@
 
     @media screen and (min-width: 319px) {
         .header{
+            @include flex-row;
+            padding: 25px;
             text-align: center;
+
+            .title{
+                text-decoration: none;
+                margin: {
+                    left: auto;
+                    right: auto;
+                }
+                
+                &:visited{
+                    color: #000000;
+                }
+            }
 
             /* .hamburger {
                 display: flex;
@@ -62,7 +76,7 @@
                     margin: 4px;
                     height: 4px;
                     width:30px;
-                    background: var(--light-colour);
+                    background: #000000;
                     border-radius: 9px;
                     z-index: 2;
                     transition: transform 300ms cubic-bezier(0.445, 0.05, 0.55, 0.95), opacity 300ms linear;
@@ -79,7 +93,7 @@
                 &--is-open .line3{
                     transform: translate(0, -12px) rotate(-45deg);
                 } 
-            }*/
+            } */
             
             .links{
                 display: none;
@@ -97,11 +111,9 @@
             align-items: center;
             padding: 50px;
 
-            a{
-                text-decoration: none;
-                &:visited{
-                    color: #000000;
-                }
+            .title{
+                margin: unset;
+                font-size: smaller;
             }
 
             .links{
@@ -126,14 +138,21 @@
                     }
                 }
             }
+        }
+    }
+
+    @media screen and (min-width: 1023px){
+        .header{
 
             .social{
+
                 @include flex-row;
                 a{
                     padding: 5px;
                 }
             }
         }
+
     }
 
 </style>

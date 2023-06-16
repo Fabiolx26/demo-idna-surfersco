@@ -8,19 +8,35 @@
 <style lang="scss" scoped>
     @import '../../sass/mixins';
 
-    .hero{
-        @include flex-col;
-        font-family: 'Playfair Display', serif;
-        font-style: italic;
+    @media screen and (min-width: 319px){
+        .hero{
+            @include flex-col;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            text-align: center;
 
-        .slogan{
-            font-size: 3rem;
-            color: #000000
+            .slogan{
+                font-size: 20px;
+                color: #000000
+            }
+
+            .subtitle{
+                font-size: 1rem;
+                color: #ffffff;
+            }
         }
+    }
 
-        .subtitle{
-            font-size: 1.5rem;
-            color: #ffffff;
+    @media screen and (min-width: 768px){
+        .hero{
+    
+            .slogan{
+                font-size: 3rem;
+            }
+    
+            .subtitle{
+                font-size: 1.5rem;
+            }
         }
     }
 </style>
