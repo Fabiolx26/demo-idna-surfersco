@@ -12,7 +12,7 @@ Demo project of a Single Page Application. This readme is only a formality.
 
 ```sh
 composer install
-php artisan migrate //Before running that, check the DB_PORT in the .env if needed
+php artisan migrate #Before running that, check the DB_PORT in the .env if needed
 php artisan serve
 ```
 
