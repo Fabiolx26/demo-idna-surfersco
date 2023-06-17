@@ -6,7 +6,7 @@ Demo project of a Single Page Application. This readme is only a formality.
 * Vue 3
 
 ## How to run it
-(This section is only a formality)
+(This section is just a formality)
 * Open the project directory on your terminal and run these commands:
 * Check the .env database settings
 
